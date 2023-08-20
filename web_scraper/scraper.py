@@ -7,11 +7,25 @@ def get_web_page(url):
     return BeautifulSoup(result.text, "html.parser")
 
 
-def get_item_list():
-    url = "https://www.lego.com/en-gb/pick-and-build/pick-a-brick?perPage=400&system=LEGO&system=TECHNIC"
+def is_last_page(url):
     soup = get_web_page(url)
 
-    # , class_="ElementsList_leaf_3tVNf"
+    s = soup.find("main")
+    s = s.find("div", class_="ElementsShown_textWrapper__VQQ6C body-lg-regular")
+    s = s.findAll("span")
+    print(s)
+    print(s[0])
+    print(s[1])
+
+    num = str(s[1].text).split()
+    if num[3] == num[5]:
+        return True
+    else:
+        return False
+
+
+def get_item_list(url):
+    soup = get_web_page(url)
 
     s = soup.find("main")
     s = s.find("div", class_="PickABrickPage_maxWidthContainer__h2uqW")
