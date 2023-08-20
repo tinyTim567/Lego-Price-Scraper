@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import re
 
 
 def get_web_page(url):
@@ -35,8 +34,5 @@ def get_item_list():
 
         item = [item_name, item_id, item_price]
         item_list.append(item)
-        print(item_name)
-        print(item_id)
-        print(item_price)
 
     return item_list
