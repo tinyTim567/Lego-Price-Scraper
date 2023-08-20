@@ -1,6 +1,16 @@
 import csv
+from datetime import datetime
 
 from web_scraper.scraper import get_item_list, is_last_page
+
+
+def write_to_file(data):
+    filename = f"output/{datetime.now().strftime('%Y-%m-%d %H-%M-%S')}.csv"
+
+    with open(filename, "w", newline="") as file:
+        writer = csv.writer(file)
+
+        writer.writerows(data)
 
 
 def export_all_to_csv(url):
@@ -22,19 +32,10 @@ def export_all_to_csv(url):
         else:
             i = i + 1
 
-            # Writes items from page to file
-            with open("output.csv", "a", newline="") as file:
-                writer = csv.writer(file)
-
-                writer.writerows(item_list)
+            write_to_file(item_list)
 
 
 def export_to_csv(url):
-    item_list = get_item_list()
-
-    with open("output.csv", "w", newline="") as file:
-        writer = csv.writer(file)
-
-        writer.writerows(item_list)
+    write_to_file(get_item_list(url))
 
     print("Done")
