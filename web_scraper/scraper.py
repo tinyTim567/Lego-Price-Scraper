@@ -22,4 +22,21 @@ def get_price_list():
     s = s.find("div", class_="ElementsContainer_container__bBlaE")
     s = s.find("ul", class_="ElementsList_leaves__iT4F8")
 
-    print(s)
+    # print(s)
+
+    item_list = []
+    # item_list = [[name, id, price]]
+    for item in s:
+        item = item.find("div")
+        item_name = ((item.find("button")).find("span", class_="ElementLeaf_elementTitle__xda82")).text
+        item_id = item.find("span", class_="Text__BaseText-sc-13i1y3k-0 iEGSLL").text.lstrip("ID: ")
+        item_price = item.find("div", class_="ElementLeaf_priceAndMaxQuantity__8Wb6Z").find("span").find(
+            "span").text.lstrip("£")
+
+        item = [item_name, item_id, item_price]
+        item_list.append(item)
+        print(item_name)
+        print(item_id)
+        print(item_price)
+
+    return item_list
