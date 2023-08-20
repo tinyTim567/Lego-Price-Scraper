@@ -13,9 +13,6 @@ def is_last_page(url):
     s = soup.find("main")
     s = s.find("div", class_="ElementsShown_textWrapper__VQQ6C body-lg-regular")
     s = s.findAll("span")
-    print(s)
-    print(s[0])
-    print(s[1])
 
     num = str(s[1].text).split()
     if num[3] == num[5]:
@@ -28,11 +25,6 @@ def get_item_list(url):
     soup = get_web_page(url)
 
     s = soup.find("main")
-    s = s.find("div", class_="PickABrickPage_maxWidthContainer__h2uqW")
-    s = s.find("div", class_="PickABrickPage_wrapper__3gMRD")
-    s = s.find("div", id="pab-results-wrapper")
-    s = s.find("div", class_="PickABrickPage_layout__B0a9f")
-    s = s.find("div", class_="ElementsContainer_container__bBlaE")
     s = s.find("ul", class_="ElementsList_leaves__iT4F8")
 
     # print(s)

@@ -14,7 +14,7 @@ def write_to_file(data):
 
 
 def export_all_to_csv(url):
-    i = 33
+    i = 1
     item_list = []
     loop = True
     while loop:
@@ -23,8 +23,6 @@ def export_all_to_csv(url):
         url = url + "&page=" + str(i)
         item_list.clear()
         item_list = get_item_list(url)
-
-        print(item_list)
 
         # Checks
         if is_last_page(url):
