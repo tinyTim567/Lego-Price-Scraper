@@ -1,4 +1,4 @@
-from web_scraper.scraper import get_price_list
+from web_scraper.exporter import export_to_csv
 
 if __name__ == '__main__':
-    get_price_list()
+    export_to_csv()

@@ -8,7 +8,7 @@ def get_web_page(url):
     return BeautifulSoup(result.text, "html.parser")
 
 
-def get_price_list():
+def get_item_list():
     url = "https://www.lego.com/en-gb/pick-and-build/pick-a-brick?perPage=400&system=LEGO&system=TECHNIC"
     soup = get_web_page(url)
 
