@@ -7,27 +7,25 @@ def get_web_page(url):
     return BeautifulSoup(result.text, "html.parser")
 
 
-def is_last_page(url):
-    soup = get_web_page(url)
-
-    s = soup.find("main")
-    s = s.find("div", class_="ElementsShown_textWrapper__VQQ6C body-lg-regular")
+def is_last_page(soup):
+    s = soup.find("div", class_="ElementsShown_textWrapper__VQQ6C body-lg-regular")
     s = s.findAll("span")
 
     num = str(s[1].text).split()
-    if num[3] == num[5]:
+    if int(num[3]) >= int(num[5]):
         return True
     else:
         return False
 
 
-def get_item_list(url):
-    soup = get_web_page(url)
+def get_item_list(soup):
 
-    s = soup.find("main")
-    s = s.find("ul", class_="ElementsList_leaves__iT4F8")
+    print("Done")
+    print("Searching page...")
 
-    # print(s)
+    s = soup.find("ul", class_="ElementsList_leaves__iT4F8")
+
+    print("Getting item data...")
 
     item_list = []
     # item_list = [[name, id, price]]
@@ -40,5 +38,7 @@ def get_item_list(url):
 
         item = [item_name, item_id, item_price]
         item_list.append(item)
+
+    print("Done")
 
     return item_list
