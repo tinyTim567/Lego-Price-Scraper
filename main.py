@@ -16,7 +16,6 @@ def check_for_updates():
     if response.status_code != 200:
         return "An error has occurred while checking for updates"
     else:
-        print(response.json()["tag_name"])
         latest_version = response.json()["tag_name"]
         if version.parse(metadata.version) < version.parse(latest_version):
             return (f"Version {metadata.version} \n"
@@ -27,7 +26,7 @@ def check_for_updates():
 
 
 if __name__ == '__main__':
-    input(f"""\n\n\n\n
+    input(f"""
 ==================================================
 
     Lego Web Scraper
