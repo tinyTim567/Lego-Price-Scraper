@@ -1,7 +1,6 @@
 from datetime import datetime
 
-from web_scraper.exporter import export_all_to_csv, export_to_csv
-from web_scraper.scraper import is_last_page
+from web_scraper.exporter import export_all_to_csv
 
 url = "https://www.lego.com/en-gb/pick-and-build/pick-a-brick?perPage=400&system=LEGO&system=TECHNIC"
 creation_date = datetime.now().strftime('%Y-%m-%d %H-%M-%S')

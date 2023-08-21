@@ -1,5 +1,4 @@
 import csv
-from datetime import datetime
 
 from web_scraper.scraper import get_item_list, is_last_page, get_web_page
 

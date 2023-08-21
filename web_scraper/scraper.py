@@ -19,7 +19,6 @@ def is_last_page(soup):
 
 
 def get_item_list(soup):
-
     print("Done")
     print("Searching page...")
 
