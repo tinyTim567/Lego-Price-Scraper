@@ -38,7 +38,6 @@ if __name__ == '__main__':
 ==================================================
         """)
 
-    print("\n\n\n\n\n\n")
     export_all_to_csv(url, creation_date)
 
     input(f"""\n\n\n\n\n\n
